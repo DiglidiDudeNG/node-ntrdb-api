@@ -1,0 +1,27 @@
+{
+  "name": "node-ntrdb-api",
+  "version": "1.0.0",
+  "description": "NTRDB Api wrapper for NodeJS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiglidiDudeNG/node-ntrdb-api.git"
+  },
+  "keywords": [
+    "ntr",
+    "restapi",
+    "nodejs"
+  ],
+  "author": "Felix Dion-Robidoux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DiglidiDudeNG/node-ntrdb-api/issues"
+  },
+  "homepage": "https://github.com/DiglidiDudeNG/node-ntrdb-api#readme",
+  "devDependencies": {
+    "request": "^2.80.0"
+  }
+}

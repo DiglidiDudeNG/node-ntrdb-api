@@ -1,2 +1,2 @@
 # node-ntrdb-api
-NTRDB API wrapper using request.js
+NTRDB Api wrapper using request.js

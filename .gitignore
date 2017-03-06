@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+### .gitignore - Felix template
+### Felix's default .gitignore file config
+# IDEA project config
+.idea/
+*.iml
+out
+gen
+
+# Node
+node_modules/
+npm-debug.log
