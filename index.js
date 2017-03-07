@@ -26,15 +26,6 @@ function NTRDB_Api() {
 }
 
 /**
- *
- * @param {Object} opts
- * @param {NTRDB_Callback} cb
- */
-NTRDB_Api.prototype.getPlugins = function(opts, cb) {
-	https.get(base_url, cb);
-}
-
-/**
  * Enum for Compatibility options.
  * @readonly
  * @enum {string}
@@ -46,6 +37,26 @@ NTRDB_Api.COMPATIBLILITY = Object.freeze({
 });
 
 /**
+ *
+ * @param {Object} opts
+ * @param {NTRDB_Callback} cb
+ */
+NTRDB_Api.prototype.getPlugins = function(opts, cb) {
+	let jsonstr = "";
+	https.get(base_url, function (res) {
+		if (res.statusCode != 200) {
+			return cb(new Error("Error"));
+		}
+		res.on("data", function (data) {
+			jsonstr += data;
+		})
+		res.on("end", function () {
+			cb(null, JSON.parse(jsonstr));
+		})
+	})
+}
+
+/**
  * @inheritDoc NTRDB_Api
  */
 module.exports = NTRDB_Api;
@@ -53,7 +64,7 @@ module.exports = NTRDB_Api;
 /**
  * @callback NTRDB_Callback
  * @param {Error} err
- * @param {{TitleID}[]} json
+ * @param {NTRDB_Plugin[]} json
  */
 
 /**
@@ -79,7 +90,8 @@ module.exports = NTRDB_Api;
  *      "compatible":   "universal",
  *      "desc":         "pokeCalcNTR is a powerful Gen 7 RNG tool that brings emulator type functions to the console",
  *      "developer":    "zaksabeast",
- *      "devsite":      "https://gbatemp.net/threads/wip-pokecalcntr-iv-and-nature-overlay-plugin-for-sun-and-moon.460524/",
+ *      "devsite":
+ *     "https://gbatemp.net/threads/wip-pokecalcntr-iv-and-nature-overlay-plugin-for-sun-and-moon.460524/",
  *      "id":           2,
  *      "likes":        0,
  *      "name":         "pokeCalcNTR",

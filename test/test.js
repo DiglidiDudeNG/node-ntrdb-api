@@ -12,23 +12,19 @@ let ntrdb_client;
 
 describe("Initialization", () => {
 	it("should be initialized with no errors.", function() {
-		assert.doesNotThrow(function (done) {
-			ntrdb_client = NTRDB_Api();
-			done();
+		assert.doesNotThrow(function () {
+			ntrdb_client = new NTRDB_Api();
 		})
 	})
 })
 
-function usage() {
-	describe("Usage", () => {
-		describe("GET all the data.", () => {
-			it("should get all the data.", function (done) {
-				ntrdb_client.getPlugins({}, function () {
-					ntrdb_client.getPlugins({}, function (err, json) {
-						
-					})
-				});
-			})
+describe("Usage", () => {
+	describe("GET all the data.", () => {
+		it("should get all the data.", function (done) {
+			ntrdb_client.getPlugins({}, function(err, data) {
+				assert.ok(err == null, "No errors.");
+				done();
+			});
 		})
 	})
-}
+})
